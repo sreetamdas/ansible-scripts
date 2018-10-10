@@ -1,0 +1,12 @@
+---
+
+- hosts: ansible-2
+  become: yes
+  tasks: 
+  - name: create a file
+    filoe: path="/home/ansible/newfiule.txt" state=touch
+    tags:
+    - first
+  - name: second task
+    ping:
+    when: ansible_hostname == "ansible-2"

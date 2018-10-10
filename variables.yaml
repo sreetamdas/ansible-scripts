@@ -1,0 +1,13 @@
+---
+
+- hosts: ansible-2
+  become: yes
+  vars:
+    var1: variable1
+    var2: variable2
+  tasks:
+  - name: create a file
+    file: path="/home/ansible/barsfile.txt" state=touch
+    tags:
+    - first
+  - shell: echo "Value of var1 is {{ var1 }}" > /home/ansible/barsfile.txt

@@ -1,0 +1,13 @@
+- hosts: ansible-2
+  become: yes
+  tasks:
+  - name: Install Tomcat7
+    package:
+      name: tomcat7
+      state: present
+  - name: Deploy Sample .war file
+    copy:
+      src: /home/ansible/sample.war
+      dest: /var/lib/tomcat7/webapps/
+  - name: Restart Tomcat7 Service
+    shell: sudo service tomcat7 restart && sudo service tomcat7 status

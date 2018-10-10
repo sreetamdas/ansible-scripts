@@ -1,0 +1,12 @@
+---
+
+- hosts: ansible-2
+  become: yes
+  tasks:
+  - name: ping this
+    ping: 
+  - name: user creation
+    user:
+      name: newuser
+      uid: 1003
+      password: "{{ 'India@12345' | password_hash('sha512') }}"

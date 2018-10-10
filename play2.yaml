@@ -1,0 +1,7 @@
+- hosts: ansible-2
+  become: yes
+  tasks:
+  - name: ping this
+    ping:
+  - name: user creation
+    shell: echo "dasdasdas" >> /var/www/html/index.html
